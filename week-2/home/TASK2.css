@@ -1,0 +1,284 @@
+/* ==========================================================================
+   1. GLOBAL & BASE STYLES
+   ========================================================================== */
+:root {
+  /* Core Base Colors */
+  --color-brand-cream: hsl(39, 64%, 87%);
+  --color-brand-blue: hsl(210, 75%, 16%);
+  --color-brand-blue-hover: hsl(210, 75%, 30%);
+  --color-brand-brown: hsl(26, 40%, 39%);
+  --color-brand-brown-hover: hsl(26, 33%, 30%);
+
+  /* Neutral Palette */
+  --color-white: hsl(0, 0%, 100%);
+  --color-off-white: hsl(0, 0%, 93%);
+  --color-gray-muted: hsl(210, 10%, 40%);
+
+  /* Component Specific Colors */
+  --color-card-bg: hsl(39, 60%, 95%);
+  --color-summary-bg: hsl(63, 19%, 79%);
+  --color-shadow: hsla(0, 0%, 0%, 0.2);
+
+  /* Semantic Theme Roles & Variable Composition */
+  --page-bg: var(--color-brand-cream);
+  --page-text: var(--color-brand-blue);
+
+  --sidebar-bg: var(--color-brand-blue);
+  --sidebar-text: var(--color-brand-cream);
+
+  --dropdown-bg: var(--page-bg);
+  --dropdown-text: var(--page-text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--page-bg);
+  color: var(--page-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==========================================================================
+   2. LAYOUT / CONTAINERS
+   ========================================================================== */
+
+.root-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+main {
+  padding: 1rem 2rem;
+}
+
+main > header {
+  /* STEP_1: Aligning the Main Header */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   3. SIDEBAR / NAVIGATION
+   ========================================================================== */
+
+aside {
+  background-color: var(--sidebar-bg);
+  min-height: 100vh;
+  color: var(--sidebar-text);
+  padding: 1rem;
+}
+
+.sidebar {
+  /* STEP_2: Manage Spacing in the Sidebar */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+menu.sidebar-menu {
+  padding: 0;
+}
+
+.sidebar-menu li {
+  list-style-type: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.1rem;
+  font-size: 1rem;
+}
+
+.sidebar-menu li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.sidebar-menu .selected {
+  background-color: var(--sidebar-text);
+  color: var(--sidebar-bg);
+}
+
+/* ==========================================================================
+   4. BUTTONS
+   ========================================================================== */
+
+/* Base Button */
+.btn {
+  padding: 0.5rem 1rem;
+  border: solid 1px var(--color-brand-blue);
+  border-radius: 0.2rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn:hover {
+  border: solid 1px var(--color-brand-blue-hover);
+  cursor: pointer;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-brand-brown);
+  border: solid 1px var(--color-brand-brown);
+  color: var(--color-brand-cream);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-brown-hover);
+  border: solid 1px var(--color-brand-brown-hover);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-brand-brown);
+  border: solid 1px var(--color-brand-brown);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-off-white);
+  border: solid 1px var(--color-brand-brown-hover);
+}
+
+/* Clear/Icon Button */
+.btn-clear {
+  border: none;
+  background-color: transparent;
+  color: var(--color-brand-brown);
+  font-size: 1.5rem;
+}
+
+.btn-clear:hover {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   5. CARDS & LISTS (Tasks & Summaries)
+   ========================================================================== */
+
+/* Task Lists */
+ul.task-list {
+  padding: 0;
+  /* STEP_4: Building the task card grid layout */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.task-list li {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Task Cards */
+.task-card {
+  background-color: var(--color-card-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px var(--color-shadow);
+  margin: 1rem;
+}
+
+.task-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-title {
+  margin: 0.75rem 0;
+}
+
+/* Summary Cards Dashboard */
+#summary-container {
+  margin-top: 1rem;
+  /* STEP_3.1: Designing the Summary Dashboard Banner Container */
+  display: flex;
+}
+
+.summary-card {
+  padding: 2rem;
+  margin: 0.5rem;
+  background-color: var(--color-summary-bg);
+  border-radius: 0.2rem;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 10px var(--color-shadow);
+  /* STEP_3.2: Expanding individual summary cards to fill space */
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   6. DROPDOWN MENUS
+   ========================================================================== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default, toggled via JS or hover states */
+  position: absolute;
+  background-color: var(--dropdown-bg);
+  min-width: max-content;
+  right: 0;
+  top: 25px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px var(--color-shadow);
+}
+
+.dropdown-content ul {
+  padding: 0;
+}
+
+.dropdown-content li {
+  padding: 0.2rem 1rem;
+  text-decoration: underline;
+}
+
+.dropdown-content li a {
+  color: var(--dropdown-text);
+}
+
+/* ==========================================================================
+   7. UTILITY CLASSES
+   ========================================================================== */
+
+.text-muted {
+  color: var(--color-gray-muted);
+}
+
+.text-sm {
+  font-size: 0.75rem;
+}
+
+.text-lg {
+  font-size: 2em;
+}
+
+.text-right {
+  text-align: right;
+}
