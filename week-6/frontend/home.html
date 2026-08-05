@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a class="brand" href="home.html">🍳 WhiskWise</a>
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="add-recipe.html">Add Recipe</a>
+        <a href="recipes.html">View Recipes</a>
+        <a href="#" id="logoutLink">Log out</a>
+      </div>
+    </nav>
+
+    <main class="welcome-section">
+      <div class="welcome-card">
+        <p class="eyebrow">You're logged in</p>
+        <h1 id="welcomeMessage">Welcome!</h1>
+        <p class="welcome-copy">
+          Start by adding a recipe, or browse what you've already saved.
+        </p>
+        <div class="welcome-actions">
+          <a class="btn-primary" href="add-recipe.html">Add a recipe</a>
+          <a class="btn-secondary" href="recipes.html">View all recipes</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        &copy; <span id="year"></span> Recipe Book. Built for keeping your own
+        recipes in one place.
+      </p>
+    </footer>
+
+    <script src="js/home.js"></script>
+  </body>
+</html>
